@@ -118,7 +118,7 @@ export default function HomePage() {
           items={[
             {
               title: "Expansion joint sealing",
-              imageSrc: "https://img.b2bpic.net/free-photo/abstract-minimal-background-with-floor_23-2149207759.jpg",
+              imageSrc: "https://storage.googleapis.com/webild/users/user_3CAbs2mtVAarsbwSrty8hTuKmCw/uploaded-1795301623229-shwxqyun.jpg",
               imageAlt: "Abstract minimal background with floor"
             },
             {
