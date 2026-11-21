@@ -76,13 +76,7 @@ const NavbarSplitLinks = ({
                 <p className="truncate text-[length:var(--text-body-lg)] font-semibold leading-none tracking-[-0.03em]">{brand}</p>
               </>
             ) : (
-              <>
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="size-[1.5rem] shrink-0">
-                  <rect width="24" height="24" className="fill-foreground" />
-                  <path d="M5 18 12 5l7 13Z" className="fill-background" />
-                </svg>
-                <p className="truncate text-[length:var(--text-body-lg)] font-medium leading-none tracking-[-0.03em] pb-[0.2em] -mb-[0.2em]">{brand}</p>
-              </>
+              <p className="truncate text-[length:var(--text-body-lg)] font-semibold leading-none tracking-[-0.03em]">{brand}</p>
             )}
           </a>
 
