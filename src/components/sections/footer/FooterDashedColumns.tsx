@@ -60,7 +60,10 @@ const FooterDashedColumns = ({
         <div className="flex flex-col gap-[2.5rem] lg:flex-row lg:items-start lg:justify-between">
           <motion.div variants={wipe} className="flex items-center gap-[0.625rem]">
             {logoSrc ? (
-              <Media src={logoSrc} alt={brand} loading="lazy" decoding="async" className="h-[1.5rem] w-auto" />
+              <div className="flex items-center gap-[0.625rem]">
+                <Media src={logoSrc} alt={brand} loading="lazy" decoding="async" className="size-[2.5rem] rounded-full object-contain mix-blend-multiply shrink-0" />
+                <p className="whitespace-nowrap text-[length:var(--text-h3)] font-medium leading-none tracking-[var(--heading-tracking)]">{brand}</p>
+              </div>
             ) : (
               <p className="whitespace-nowrap text-[length:var(--text-h3)] font-medium leading-none tracking-[var(--heading-tracking)]">{brand}</p>
             )}
