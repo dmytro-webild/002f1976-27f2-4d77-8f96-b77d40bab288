@@ -10,7 +10,6 @@ export default function Layout() {
       <header data-webild-section="Header">
         <NavbarSplitLinks
           brand="Crack Fillers Caulking"
-          logoSrc={LOGO_URL}
           navItems={[
             {
               name: "Services",
