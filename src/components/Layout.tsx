@@ -93,8 +93,8 @@ export default function Layout() {
                   note: "Call Now"
                 },
                 {
-                  text: "info@crackfillerscaulking.com",
-                  href: "mailto:info@crackfillerscaulking.com"
+                  text: "crackfillerscaulking@gmail.com",
+                  href: "mailto:crackfillerscaulking@gmail.com"
                 },
                 {
                   text: "Request a Free Quote",
@@ -123,7 +123,7 @@ export default function Layout() {
             },
             {
               icon: "Mail",
-              href: "mailto:info@crackfillerscaulking.com",
+              href: "mailto:crackfillerscaulking@gmail.com",
               label: "Email"
             }
           ]}
