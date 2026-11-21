@@ -189,6 +189,8 @@ export default function HomePage() {
       <div id="contact" data-webild-section="ContactSplitCell" data-webild-section-id="ContactSplitCell-1" data-section="contact">
         <ContactSplitCell
           title="Request a Free Caulking or Masonry Quote"
+          email="crackfillerscaulking@gmail.com"
+          phone="(920) 838-4678"
           submitText="Request Free Quote"
           successText="Thank you for reaching out. We will respond promptly to schedule your free estimate."
           imageSrc="https://storage.googleapis.com/webild/users/user_3CAbs2mtVAarsbwSrty8hTuKmCw/uploaded-1795300923887-u4djhqar.jpg"

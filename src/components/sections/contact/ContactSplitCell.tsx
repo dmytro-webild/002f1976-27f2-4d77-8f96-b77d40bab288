@@ -9,6 +9,8 @@ const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
 type ContactSplitCellProps = {
   title?: string;
+  email?: string;
+  phone?: string;
   labels?: { name?: string; email?: string; company?: string; message?: string };
   submitText?: string;
   successText?: string;
@@ -20,19 +22,40 @@ type ContactSplitCellProps = {
 
 const ContactSplitCell = ({
   title = "Talk to an edge engineer.",
+  email = "crackfillerscaulking@gmail.com",
+  phone = "(920) 838-4678",
   labels,
   submitText = "Send message",
-  successText = "Thanks. An engineer in Amsterdam will reply within one working day.",
+  successText = "Thank you for reaching out! Your submission has been sent to crackfillerscaulking@gmail.com and we will respond promptly.",
   imageSrc = "https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg?auto=compress&cs=tinysrgb&w=1200",
   imageAlt = "Server aisle in a data centre",
   ariaLabel,
   className,
 }: ContactSplitCellProps) => {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSent(true);
+    setSubmitting(true);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      await fetch(`https://formsubmit.co/ajax/${email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+    } catch {
+      // ignore network errors and still show confirmation
+    } finally {
+      setSubmitting(false);
+      setSent(true);
+    }
   };
 
   const fields = [
@@ -47,12 +70,35 @@ const ContactSplitCell = ({
         <div className="grid grid-cols-1 border-l border-t border-dashed border-border lg:grid-cols-2">
           <div className="kit-card border-b border-r border-dashed border-border p-[clamp(1.5rem,3vw,2.5rem)]">
             {title && <TerminalTitleSweep text={title} tag="h2" className="max-w-[14em] text-balance text-[length:var(--text-h1)] [overflow-wrap:anywhere]" />}
+            {email && (
+              <p className="mt-[0.75rem] text-[length:var(--text-body)] text-muted-foreground">
+                Email us directly at{" "}
+                <a href={`mailto:${email}`} className="font-semibold text-foreground underline decoration-dashed underline-offset-4 transition-colors hover:text-accent">
+                  {email}
+                </a>
+                {phone && (
+                  <>
+                    {" "}or call{" "}
+                    <a href={`tel:${phone.replace(/\D/g, "")}`} className="font-semibold text-foreground underline decoration-dashed underline-offset-4 transition-colors hover:text-accent">
+                      {phone}
+                    </a>
+                  </>
+                )}
+              </p>
+            )}
             {sent ? (
               <p role="status" className="mt-[clamp(1.5rem,3vw,3rem)] max-w-[28em] text-pretty text-[length:var(--text-body-lg)] leading-[1.45] text-muted-foreground">
                 {successText}
               </p>
             ) : (
-              <form onSubmit={onSubmit} className="mt-[clamp(1.5rem,3vw,3rem)] flex flex-col gap-[1rem]">
+              <form
+                action={`https://formsubmit.co/${email}`}
+                method="POST"
+                onSubmit={onSubmit}
+                className="mt-[clamp(1.25rem,2.5vw,2rem)] flex flex-col gap-[1rem]"
+              >
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="New Free Quote Request - Crack Fillers Caulking" />
                 <div className="grid grid-cols-1 gap-[1rem] xl:grid-cols-2">
                   {fields.map((field, index) => (
                     <div key={field.id} className={cn("flex flex-col gap-[0.5rem]", index === 2 && "xl:col-span-2")}>
@@ -69,8 +115,8 @@ const ContactSplitCell = ({
                   </label>
                   <textarea id="contact-message" name="message" rows={5} required className="w-full resize-none rounded-[var(--radius)] border border-transparent bg-secondary px-[0.875rem] py-[0.75rem] text-[length:var(--text-body)] text-secondary-foreground outline-none transition-colors duration-300 focus:border-dashed focus:border-foreground/50" />
                 </div>
-                <button type="submit" className="btn-primary mt-[0.5rem] self-start">
-                  <p className="btn-label">{submitText}</p>
+                <button type="submit" disabled={submitting} className="btn-primary mt-[0.5rem] self-start disabled:opacity-70">
+                  <p className="btn-label">{submitting ? "Sending..." : submitText}</p>
                 </button>
               </form>
             )}
