@@ -2,12 +2,15 @@ import { Outlet } from "react-router-dom";
 import NavbarSplitLinks from "@/components/navbars/NavbarSplitLinks";
 import FooterDashedColumns from "@/components/sections/footer/FooterDashedColumns";
 
+const LOGO_URL = "https://storage.googleapis.com/webild/users/user_3CAbs2mtVAarsbwSrty8hTuKmCw/uploaded-1795301453677-vmg5rnzi.jpg";
+
 export default function Layout() {
   return (
     <div className="relative isolate min-h-svh flex flex-col bg-background text-foreground" data-particles="architecture" data-button="default" data-card="filled" data-pattern="none">
       <header data-webild-section="Header">
         <NavbarSplitLinks
           brand="Crack Fillers Caulking"
+          logoSrc={LOGO_URL}
           navItems={[
             {
               name: "Services",
@@ -42,6 +45,7 @@ export default function Layout() {
       <footer data-webild-section="Footer" data-section="footer">
         <FooterDashedColumns
           brand="Crack Fillers Caulking"
+          logoSrc={LOGO_URL}
           columns={[
             {
               title: "Services",

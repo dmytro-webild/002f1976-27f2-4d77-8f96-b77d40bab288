@@ -63,9 +63,18 @@ const NavbarSplitLinks = ({
     <>
       <motion.nav aria-label="Main" style={{ y: open ? "0%" : y }} className="fixed inset-x-0 top-0 z-50 h-[4rem] bg-background/90 text-foreground">
         <div className="relative mx-auto flex h-full w-[var(--container)] items-center justify-between gap-[1rem]">
-          <a href="#" className="flex min-w-0 shrink-0 items-center gap-[0.5rem]">
+          <a href="#" className="flex min-w-0 shrink-0 items-center gap-[0.625rem]">
             {logoSrc ? (
-              <img src={logoSrc} alt={brand} loading="eager" decoding="async" className="h-[1.5rem] w-auto max-w-[9rem] object-contain" />
+              <>
+                <img
+                  src={logoSrc}
+                  alt={brand}
+                  loading="eager"
+                  decoding="async"
+                  className="size-[2.35rem] rounded-full object-contain mix-blend-multiply shrink-0"
+                />
+                <p className="truncate text-[length:var(--text-body-lg)] font-semibold leading-none tracking-[-0.03em]">{brand}</p>
+              </>
             ) : (
               <>
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="size-[1.5rem] shrink-0">
