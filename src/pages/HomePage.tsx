@@ -20,7 +20,7 @@ export default function HomePage() {
             text: "Locally Owned Since 2014",
             href: "#services"
           }}
-          title="Expert caulking repair. Call today."
+          title="Expert caulking repair. Call today!"
           description="Joint sealants, waterproofing, and brick repair from Milwaukee to Green Bay. Fully insured."
           primaryButton={{
             text: "Get Free Quote",
