@@ -162,7 +162,7 @@ export default function HomePage() {
               quote: "Daniel resealed our commercial building brick seams before winter and completely stopped the leaks.",
               name: "Priya Price",
               role: "Facility Manager, Milwaukee",
-              imageSrc: "https://img.b2bpic.net/free-photo/shallow-focus-shot-female-leaning-against-wooden-fence-smiling-camera_181624-8017.jpg"
+              imageSrc: "https://storage.googleapis.com/webild/users/user_3CAbs2mtVAarsbwSrty8hTuKmCw/uploaded-1795300923888-864npho6.jpg"
             },
             {
               quote: "Our chimney brick mortar was crumbling fast. Crack Fillers tuckpointed the entire stack cleanly and efficiently.",
@@ -191,7 +191,7 @@ export default function HomePage() {
           title="Request a Free Caulking or Masonry Quote"
           submitText="Request Free Quote"
           successText="Thank you for reaching out. We will respond promptly to schedule your free estimate."
-          imageSrc="https://img.b2bpic.net/free-photo/tiler-working-renovation-apartment_23-2149278604.jpg"
+          imageSrc="https://storage.googleapis.com/webild/users/user_3CAbs2mtVAarsbwSrty8hTuKmCw/uploaded-1795300923887-u4djhqar.jpg"
           imageAlt="Tiler working on renovation of apartment"
           labels={{
             name: "Your Name",
